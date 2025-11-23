@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>me</title>
+    <!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <meta charset="utf-8"/>
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>    
+    <!-- chart js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="fs.js"></script>
+    <script src="utils/CStorage.js"></script>
+    <script src="utils/UI.js"></script>
+    <script src="utils/Theme.js"></script>
+    <script src="utils/state.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main class="flex expand">
+    <div class="flex expand no-select" id="sidebar-container">
+        <div class="flex expand" id="nav-container">
+            <div class="flex expand" style="gap: 2px"></div>
+            <div class="flex expand" style="height: fit-content; margin-bottom: 8px;"></div>
+        </div>
+        <div id="nav-buttons"></div>
+    </div>
+    <div class="flex expand">
+
+    </div>
+</main>
+<div class="flex" id="latex-menu">
+    <textarea></textarea>
+    <div class="flex expand"></div>
+</div>
+<!-- <div class="flex expand overlay" open>
+    <div class="flex expand popup">JUMP
+    </div>
+</div> -->
+<div id="not-shown">
+    <span class="material-symbols-rounded"></span>
+    <button class="button flex" style-type="default"></button>
+    <button class="button flex" style-type="nav"></button>
+    <div class="flex search">
+        <label class="no-select material-symbols-rounded">search</label>
+        <input spellcheck="false" class="input">
+    </div>
+
+    <form>
+        <select>
+            <button>
+                <selectedcontent></selectedcontent>
+            </button>
+            <option value="">Select</option>
+        </select>
+    </form>
+
+    <div class="flex problem">
+        <div class="flex expand p-top">
+            <div class="p-name">
+                <input class="input" spellcheck="false"/>
+            </div>
+            <div class="no-select flex expand" style="width: fit-content;">
+
+            </div>
+        </div>
+        <div class="expand p-content">
+
+        </div>
+        <div class="flex expand p-bottom">
+
+        </div>
+    </div>
+
+    <div class="expand flex tag-holder no-select" style="align-items: center; height: fit-content;">
+        <input spellcheck="false" class="input" style="display: none; max-width: calc(var(--text-size)*4 + 3rem);"/>
+    </div>
+    <div class="flex tag"><span></span></div>
+    
+    <div class="flex expand context-menu-item">
+        <button class="flex button context-menu-button">
+            <span class="material-symbols-rounded"></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="flex context-menu context-menu-sublist"></div>
+
+    <div class="dropdown-item">
+        <button class="flex button dropdown-button">
+            <div class="expand flex" style="justify-content: flex-start; gap: 4px; pointer-events: none;">
+                <div class="expand dropdown-icon"></div>
+                <span contenteditable spellcheck="false" class="span-edit"></span>
+            </div>
+            <div class="flex dropdown-none"></div>
+        </button>
+    </div>
+
+    <div class="flex dropdown-select">
+        <div class="dropdown-select-icon">
+            <!-- this never existed.... -->
+        </div>
+        <div class="flex dropdown-select-value">
+            <span class="text-main"></span>
+            <span class="text-sub"></span>
+        </div>
+        <div class="no-select dropdown-select-expand-icon">
+            <span class="material-symbols-rounded">keyboard_arrow_down</span>
+        </div>
+    </div>
+
+    <svg id="algebra-symbol" height="100%" fill="#000000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 142.514 142.514" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M34.367,142.514c11.645,0,17.827-10.4,19.645-16.544c0.029-0.097,0.056-0.196,0.081-0.297 c4.236-17.545,10.984-45.353,15.983-65.58h17.886c3.363,0,6.09-2.726,6.09-6.09c0-3.364-2.727-6.09-6.09-6.09H73.103 c1.6-6.373,2.771-10.912,3.232-12.461l0.512-1.734c1.888-6.443,6.309-21.535,13.146-21.535c6.34,0,7.285,9.764,7.328,10.236 c0.27,3.343,3.186,5.868,6.537,5.579c3.354-0.256,5.864-3.187,5.605-6.539C108.894,14.036,104.087,0,89.991,0 C74.03,0,68.038,20.458,65.159,30.292l-0.49,1.659c-0.585,1.946-2.12,7.942-4.122,15.962H39.239c-3.364,0-6.09,2.726-6.09,6.09 c0,3.364,2.726,6.09,6.09,6.09H57.53c-6.253,25.362-14.334,58.815-15.223,62.498c-0.332,0.965-2.829,7.742-7.937,7.742 c-7.8,0-11.177-10.948-11.204-11.03c-0.936-3.229-4.305-5.098-7.544-4.156c-3.23,0.937-5.092,4.314-4.156,7.545 C13.597,130.053,20.816,142.514,34.367,142.514z"></path> <path d="M124.685,126.809c3.589,0,6.605-2.549,6.605-6.607c0-1.885-0.754-3.586-2.359-5.474l-12.646-14.534l12.271-14.346 c1.132-1.416,1.98-2.926,1.98-4.908c0-3.59-2.927-6.231-6.703-6.231c-2.547,0-4.527,1.604-6.229,3.684l-9.531,12.454L98.73,78.391 c-1.89-2.357-3.869-3.682-6.7-3.682c-3.59,0-6.607,2.551-6.607,6.609c0,1.885,0.756,3.586,2.357,5.471l11.799,13.592 L86.647,115.67c-1.227,1.416-1.98,2.926-1.98,4.908c0,3.589,2.926,6.229,6.699,6.229c2.549,0,4.53-1.604,6.229-3.682l10.19-13.4 l10.193,13.4C119.872,125.488,121.854,126.809,124.685,126.809z"></path> </g> </g> </g></svg>
+    
+    <div class="flex fs-element problem-set">
+        <div class="flex expand p-top">
+            <div class="no-select flex fs-icon" style="width: fit-content;"></div>           
+            <div class="fs-name">PROBLEM</div>
+            <div class="no-select flex expand" style="width: fit-content;"></div>            
+        </div>
+    </div>
+    <div class="flex fs-element problem-folder">
+        <div class="flex expand p-top">
+            <div class="no-select flex fs-icon" style="width: fit-content;"></div>           
+            <div class="fs-name">FOLDER</div>
+            <div class="no-select flex expand" style="width: fit-content;"></div>            
+        </div>
+    </div>
+</div>
+<script defer src="script.js"></script>
+</body>
+</html>
