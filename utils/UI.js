@@ -1,0 +1,1 @@
+class UI{static c={};static l={};static element(t,s={},r={}){let i=document.createElement(t);return UI.setAttributes(i,s),UI.setOtherAttrs(i,r),i}static setAttributes(t,s){Object.keys(s).forEach(r=>t.setAttribute(r,s[r]))}static setOtherAttrs(t,s){Object.keys(s).forEach(r=>t[r]=s[r])}static html(t){let s=UI.element("div");return s.innerHTML=t,s.firstChild}}
